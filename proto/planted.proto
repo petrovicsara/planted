@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.planted";
+option java_outer_classname = "PlantedProto";
+
+package proto;
+
+message Meat {
+  string meat = 1;
+}
+
+message Message {
+  string slogan = 1;
+}
+
+message Connect {
+  Meat meat = 1;
+  bool active = 2;
+}
+
+message Close {}
+
+service Broadcast {
+  rpc GetSlogan(Meat) returns (Message);
+}
